@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\history.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\menu\\history.xml"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\encode.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\menu\\encode.xml"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\capture.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\menu\\capture.xml"
+    }
+]

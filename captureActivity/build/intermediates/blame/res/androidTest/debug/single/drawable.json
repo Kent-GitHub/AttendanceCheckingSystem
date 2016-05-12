@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_bg.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_bg.xml"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\setting_icon.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable\\setting_icon.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\launcher_icon.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable\\launcher_icon.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\btn_switch.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable\\btn_switch.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\capture_result_bg.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable\\capture_result_bg.xml"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\share_via_barcode.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable\\share_via_barcode.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\scanner_line.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable\\scanner_line.png"
+    }
+]

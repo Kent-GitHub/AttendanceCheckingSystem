@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/found_container">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:id="@+id/found_summary"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:strokeLeft="true"
+                app:strokeRight="true"
+                app:strokeTop="true">
+
+                <ImageView
+                    android:id="@+id/found_btn_left"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_settings"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/found_month"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="2016年5月概况" />
+
+                <ImageView
+                    android:id="@+id/found_btn_right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_settings"
+                    android:visibility="gone" />
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                app:strokeLeft="true"
+                app:strokeRight="true"
+                app:strokeTop="true">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/ic_apply_attendance" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="工作天数" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+                        android:id="@+id/found_workDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:text="@string/none"
+                        app:strokeLeft="true" />
+                </LinearLayout>
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                app:strokeLeft="true"
+                app:strokeRight="true"
+                app:strokeTop="true">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/ic_apply_go_out" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="外勤天数" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+                        android:id="@+id/found_goOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:text="@string/none"
+                        app:strokeLeft="true" />
+                </LinearLayout>
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                app:strokeLeft="true"
+                app:strokeRight="true"
+                app:strokeTop="true">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/ic_apply_travel" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="出差天数" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+                        android:id="@+id/found_travel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:text="@string/none"
+                        app:strokeLeft="true" />
+                </LinearLayout>
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                app:strokeLeft="true"
+                app:strokeRight="true"
+                app:strokeTop="true">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/ic_apply_overtime" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="加班次数" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+                        android:id="@+id/found_ot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:text="@string/none"
+                        app:strokeLeft="true" />
+                </LinearLayout>
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                app:strokeLeft="true"
+                app:strokeRight="true"
+                app:strokeTop="true">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/ic_apply_leave" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="请假天数" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+                        android:id="@+id/found_leave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:text="@string/none"
+                        app:strokeLeft="true" />
+                </LinearLayout>
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                app:strokeLeft="true"
+                app:strokeRight="true"
+                app:strokeTop="true">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/ic_apply_late_early" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="迟到次数" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+                        android:id="@+id/found_late"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:text="@string/none"
+                        app:strokeLeft="true" />
+                </LinearLayout>
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                app:strokeBottom="true"
+                app:strokeLeft="true"
+                app:strokeRight="true"
+                app:strokeTop="true">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/ic_apply_late_early" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="早退次数" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+                        android:id="@+id/found_lwe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:text="@string/none"
+                        app:strokeLeft="true" />
+                </LinearLayout>
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+            <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                app:strokeBottom="true"
+                app:strokeLeft="true"
+                app:strokeRight="true">
+
+                <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+                    android:id="@+id/found_check_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1px"
+                    android:layout_marginRight="1px"
+                    app:textLeft="查看签到日历" />
+
+                <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+                    android:id="@+id/found_statistics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1px"
+                    android:layout_marginLeft="1px"
+                    android:layout_marginRight="1px"
+                    app:textLeft="签到统计查询"
+                    app:topLine="true" />
+            </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

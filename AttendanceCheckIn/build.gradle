@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+    //**bmob-sdk:3.4.6版本依赖包，用于兼容Android6.0系统**
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.laughing8.attendancecheckin"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+repositories{
+    flatDir{
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile name: 'SMSSDK-2.0.2', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.0.2', ext: 'aar'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    //bmob-push：Bmob的推送包
+    compile 'cn.bmob.android:bmob-push:0.8'
+    //bmob
+    compile 'cn.bmob.android:bmob-sdk:3.4.6'
+    compile 'com.android.support:support-v4:23.2.1'
+    //    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    //    compile 'com.squareup.okio:okio:1.4.0'
+    //    //bmob-im：bmob的im包，以下两个配置是im功能所需
+    //    compile 'cn.bmob.android:bmob-im:1.1.9'
+    //    compile 'cn.bmob.android:bmob-sdk:3.4.3'
+    //UniversalImageLoader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //日历框架。。。
+    compile project(':DatePicker')
+    compile 'com.github.prolificinteractive:material-calendarview:v1.2.0'
+    compile 'org.jetbrains:annotations-java5:15.0'
+    //第三方DialogFragment
+    compile 'com.avast:android-styled-dialogs:2.3.3'
+    //二维码library
+    compile project(':captureActivity')
+    //SearchBar
+    compile 'com.github.arimorty:floatingsearchview:1.1.2'
+}

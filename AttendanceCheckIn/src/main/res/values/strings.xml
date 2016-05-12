@@ -1,0 +1,15 @@
+<resources>
+    <string name="main_app_name">A我要签到</string>
+    <string name="my_qr_code">二维码</string>
+    <string name="content_description">contentDescription</string>
+    <string name="validate_info">验证信息</string>
+    <string name="text_left">TextLeft</string>
+    <string name="loading">加载中，请稍后~</string>
+    <string name="cover_view_tv_loading">正在加载...</string>
+    <string name="cover_view_btn_reload">点击重新加载...</string>
+    <string name="none">无</string>
+    <string name="admin_validate">管理员验证</string>
+    <string name="enter_password">请输入验证密码</string>
+    <string name="forget_password">忘记密码？</string>
+    <string name="iv_description">ImageViewContentDescription</string>
+</resources>

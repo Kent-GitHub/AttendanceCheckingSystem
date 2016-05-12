@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">考勤系统</string>
+    <string name="action_bar_title">请验证</string>
+    <string name="enter_password">请输入密码</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="enter_user_name">请输入用户名</string>
+    <string name="setting">设置</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="user_setting">账号管理</string>
+    <string name="nickname">NickName</string>
+    <string name="username">UserName</string>
+    <string name="textleft">TextLeft</string>
+    <string name="textright">TextRight</string>
+</resources>

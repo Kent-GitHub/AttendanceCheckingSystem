@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.madmatrix.zxing.android.test">
+
+    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19" />
+
+    <application>
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+                     android:targetPackage="org.madmatrix.zxing.android"
+                     android:handleProfiling="false"
+                     android:functionalTest="false"
+                     android:label="Tests for org.madmatrix.zxing.android"/>
+</manifest>

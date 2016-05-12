@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coverView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#faf0f0f0"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/cover_view_progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="123dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/cover_view_image"
+        android:layout_width="123dp"
+        android:layout_height="123dp"
+        android:layout_below="@id/cover_view_progressBar"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/out_of_network" />
+
+    <TextView
+        android:id="@+id/cover_view_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cover_view_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/cover_view_tv_loading"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/cover_view_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cover_view_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/cover_view_btn_reload" />
+
+</RelativeLayout>

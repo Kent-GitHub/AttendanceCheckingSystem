@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\release\\drawable\\btn_switch.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\btn_switch.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\release\\drawable\\setting_icon.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\setting_icon.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\release\\drawable\\launcher_icon.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\launcher_icon.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\release\\drawable\\share_via_barcode.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\share_via_barcode.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\release\\drawable\\capture_result_bg.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\capture_result_bg.xml"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\release\\drawable\\btn_bg.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\btn_bg.xml"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\release\\drawable\\scanner_line.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\scanner_line.png"
+    }
+]

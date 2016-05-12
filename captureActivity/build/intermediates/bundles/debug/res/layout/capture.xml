@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Copyright (C) 2008 ZXing authors
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <com.google.zxing.client.android.ViewfinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <FrameLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="#1782ef"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/capture_btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/btn_bg"
+            android:contentDescription="@string/switchBtn"
+            android:padding="6dp"
+            android:src="@drawable/icon_back_white" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="6dp"
+            android:text="@string/capture_title_scan"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_gravity="center_vertical|end"
+            android:id="@+id/capture_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:background="@drawable/btn_bg"
+            android:src="@drawable/icon_switch_camera"
+            android:contentDescription="@string/switchBtn"/>
+
+    </FrameLayout>
+
+    <com.kent.view.CustomDigitalClock
+        android:id="@+id/check_clock"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <TextView
+        android:id="@+id/capture_attendance_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="XXXXXXXX签到" />
+
+    <ImageView
+        android:id="@+id/capture_scan_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:contentDescription="@string/scannerLine"
+        android:src="@drawable/scanner_line" />
+
+    <!-- 扫描结果Layout  开始 -->
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:id="@+id/capture_result"
+        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:background="@drawable/capture_result_bg">
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/capture_result_title"
+            android:text="@string/check_in_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/capture_result_number"
+                android:text="@string/capture_result_content"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/capture_result_name"
+                android:text="@string/capture_result_name"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/capture_result_close"
+            android:text="@string/btn_close"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="#00000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"/>
+    </RelativeLayout>
+    <!-- 扫描结果Layout  结束 -->
+
+
+</merge>

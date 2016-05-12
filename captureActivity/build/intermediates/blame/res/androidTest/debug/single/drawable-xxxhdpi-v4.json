@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4\\icon_quiet.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable-xxxhdpi-v4\\icon_quiet.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4\\icon_sound.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable-xxxhdpi-v4\\icon_sound.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4\\icon_shake.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable-xxxhdpi-v4\\icon_shake.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4\\icon_switch.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable-xxxhdpi-v4\\icon_switch.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4\\icon_back_white.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable-xxxhdpi-v4\\icon_back_white.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxxhdpi-v4\\icon_switch_camera.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\bundles\\debug\\res\\drawable-xxxhdpi-v4\\icon_switch_camera.9.png"
+    }
+]

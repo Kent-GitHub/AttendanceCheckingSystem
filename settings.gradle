@@ -1,0 +1,4 @@
+include ':AttendanceChecking', ':AttendanceCheckIn', ':libzxing'
+include ':captureActivity'
+include ':xBarcodeScanner'
+include ':DatePicker'

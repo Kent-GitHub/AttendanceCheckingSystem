@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\icon_back_white.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable-xxhdpi\\icon_back_white.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\icon_switch.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable-xxhdpi\\icon_switch.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\icon_sound.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable-xxhdpi\\icon_sound.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\icon_shake.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable-xxhdpi\\icon_shake.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\icon_quiet.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable-xxhdpi\\icon_quiet.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\icon_switch_camera.9.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable-xxhdpi\\icon_switch_camera.9.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\launcher_icon.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable-xxhdpi\\launcher_icon.png"
+    }
+]

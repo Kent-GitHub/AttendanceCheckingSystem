@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable\\capture_result_bg.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\capture_result_bg.xml"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable\\setting_icon.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\setting_icon.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable\\launcher_icon.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\launcher_icon.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable\\scanner_line.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\scanner_line.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_switch.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\btn_switch.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable\\share_via_barcode.png",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\share_via_barcode.png"
+    },
+    {
+        "merged": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_bg.xml",
+        "source": "K:\\Workspace_Android\\AttendanceCheckingSystem\\captureActivity\\src\\main\\res\\drawable\\btn_bg.xml"
+    }
+]

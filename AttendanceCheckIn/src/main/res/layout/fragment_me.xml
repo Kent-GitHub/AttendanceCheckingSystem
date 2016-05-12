@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+   <LinearLayout
+       android:id="@+id/me_info"
+       android:clickable="true"
+       android:gravity="center_vertical"
+       android:layout_marginTop="15dp"
+       android:layout_width="match_parent"
+       android:layout_height="70dp"
+       android:orientation="horizontal"
+       android:background="@drawable/setting_item_bg">
+       <ImageView
+           android:id="@+id/me_icon"
+           android:layout_marginLeft="10dp"
+           android:src="@mipmap/ic_launcher"
+           android:layout_width="50dp"
+           android:layout_height="50dp" />
+       <LinearLayout
+           android:layout_marginLeft="15dp"
+           android:gravity="center_vertical"
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <TextView
+               android:text="张伟"
+               android:id="@+id/me_name"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+           <TextView
+               android:text="研发部"
+               android:id="@+id/me_department"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+   </LinearLayout>
+
+    <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+        android:id="@+id/me_help"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textLeft="使用帮助"/>
+    <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+        android:id="@+id/me_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textLeft="关于软件"
+        app:topLine="true"/>
+    <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+        android:id="@+id/me_feedBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textLeft="反馈"
+        app:topLine="true"/>
+
+    <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+        android:id="@+id/me_change_password"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textLeft="修改密码"/>
+
+    <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+        android:id="@+id/me_logout"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textLeft="注销当前账号"/>
+
+</LinearLayout>
