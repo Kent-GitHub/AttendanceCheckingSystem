@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.laughing8.attendancecheckin.R;
 import com.laughing8.attendancecheckin.bmobobject.MUser;
 import com.laughing8.attendancecheckin.bmobobject.RecordByMouth;
-import com.laughing8.attendancecheckin.utils.network.DataQuery;
+import com.laughing8.attendancecheckin.utils.bmobquery.DataQuery;
 import com.laughing8.attendancecheckin.utils.network.DataShare;
 import com.laughing8.attendancecheckin.view.fragment.SecondFragment;
 
@@ -108,7 +108,7 @@ public class LateFragment extends SecondFragment implements DataQuery.OnQueryFin
     }
 
     @Override
-    public void queryFinish(List result, int type) {
+    public void onQuerySuccess(List result, int type) {
         if (type == queryRecord) {
             if (result != null && result.size() > 0) {
                 initData(result);
@@ -118,6 +118,11 @@ public class LateFragment extends SecondFragment implements DataQuery.OnQueryFin
             }
             mProgressBar.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void onQueryError(int errorCode, String describe, int queryCode) {
+
     }
 
     private void initData(List result) {
@@ -175,6 +180,7 @@ public class LateFragment extends SecondFragment implements DataQuery.OnQueryFin
         if (timesSortDecrease) sortByTimes.setImageResource(R.drawable.arrow_down);
         else sortByTimes.setImageResource(R.drawable.arrow_up);
         sortByTimeCount.setImageResource(R.drawable.arrow);
+        mAdapter.notifyDataSetChanged();
     }
 
     private boolean timeCountSorted;
@@ -202,6 +208,7 @@ public class LateFragment extends SecondFragment implements DataQuery.OnQueryFin
         if (timeCountDecrease) sortByTimeCount.setImageResource(R.drawable.arrow_down);
         else sortByTimeCount.setImageResource(R.drawable.arrow_up);
         sortByTimes.setImageResource(R.drawable.arrow);
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override

@@ -1,10 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:background="#50ffffff">
 
+    <LinearLayout
+        android:id="@+id/request_container1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="horizontal">
 
+        <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+            android:id="@+id/request_request"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/setting_item_bg"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:strokeBottom="true">
 
+            <ImageView
+                android:id="@+id/icon_request"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icon_request1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_request"
+                android:textColor="#21292b"
+                android:textSize="16sp" />
+        </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+            android:id="@+id/request_approve"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/setting_item_bg"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:strokeBottom="true">
+
+            <ImageView
+                android:id="@+id/icon_approve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/icon_approve1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_approve"
+                android:textColor="#21292b"
+                android:textSize="16sp" />
+        </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/request_container2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/setting_item_bg1"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:strokeBottom="true"
+            app:strokeRight="true"
+            android:id="@+id/request_afl">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_leave" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请假"
+                android:textColor="#000" />
+        </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/setting_item_bg1"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:strokeBottom="true"
+            app:strokeRight="true"
+            android:id="@+id/request_go_out">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_go_out" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="外勤"
+                android:textColor="#000" />
+        </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/setting_item_bg1"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:strokeBottom="true"
+            android:id="@+id/request_travel">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_travel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出差"
+                android:textColor="#000" />
+        </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/request_container3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/setting_item_bg1"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:strokeBottom="true"
+            app:strokeRight="true"
+            android:id="@+id/request_ot">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_overtime" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加班"
+                android:textColor="#000" />
+        </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:strokeBottom="true"
+            app:strokeRight="true" />
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeTextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:strokeBottom="true" />
+    </LinearLayout>
 </LinearLayout>

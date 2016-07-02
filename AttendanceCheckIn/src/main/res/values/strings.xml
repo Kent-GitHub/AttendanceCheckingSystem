@@ -12,4 +12,7 @@
     <string name="enter_password">请输入验证密码</string>
     <string name="forget_password">忘记密码？</string>
     <string name="iv_description">ImageViewContentDescription</string>
+    <string name="my_request">我申请的</string>
+    <string name="my_approve">我审批的</string>
+    <string name="submit">提交</string>
 </resources>

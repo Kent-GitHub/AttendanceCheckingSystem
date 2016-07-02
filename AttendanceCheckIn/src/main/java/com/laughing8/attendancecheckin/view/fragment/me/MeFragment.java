@@ -1,7 +1,6 @@
 package com.laughing8.attendancecheckin.view.fragment.me;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,10 +17,10 @@ import com.laughing8.attendancecheckin.application.MyApplication;
 import com.laughing8.attendancecheckin.bmobobject.MUser;
 import com.laughing8.attendancecheckin.constants.Actions;
 import com.laughing8.attendancecheckin.constants.Constants;
-import com.laughing8.attendancecheckin.view.custom.SettingViewFroward;
 import com.laughing8.attendancecheckin.view.activity.LoginActivity;
 import com.laughing8.attendancecheckin.view.activity.MainActivity;
 import com.laughing8.attendancecheckin.view.activity.SecondActivity;
+import com.laughing8.attendancecheckin.view.custom.SettingViewFroward;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,10 +115,7 @@ public class MeFragment extends Fragment implements View.OnClickListener, ISimpl
     //ISimpleDialogListener
     @Override
     public void onPositiveButtonClicked(int requestCode) {
-        MyApplication mApplication = (MyApplication) getActivity().getApplication();
-        SQLiteDatabase db = mApplication.getDbHelper().getWritableDatabase();
-        db.execSQL("DELETE FROM "+Constants.UserTable);
-        mApplication.getPref().edit().putBoolean("logged",false).apply();
+        MUser.logOut(mActivity);
         Intent i=new Intent(mActivity, LoginActivity.class);
         startActivity(i);
         mActivity.finish();

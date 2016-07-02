@@ -25,9 +25,9 @@ public class RecordType extends BmobObject {
         values = new ArrayList<>();
     }
 
-    private int version;
+    private Integer version;
     private List<String> values;
-    private int typeCount;
+    private Integer typeCount;
 
     public String getTypeString(int type) {
         if (type > values.size()-1) {
@@ -51,10 +51,6 @@ public class RecordType extends BmobObject {
         typeCount = values.size();
     }
 
-    public int getVersion() {
-        return version;
-    }
-
     public void setVersion(int version) {
         this.version = version;
     }
@@ -68,8 +64,19 @@ public class RecordType extends BmobObject {
         typeCount = values.size();
     }
 
-    public int getTypeCount() {
-        return values.size();
+    public Integer getTypeCount() {
+        return typeCount;
     }
 
+    public void setTypeCount(Integer typeCount) {
+        this.typeCount = typeCount;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 }

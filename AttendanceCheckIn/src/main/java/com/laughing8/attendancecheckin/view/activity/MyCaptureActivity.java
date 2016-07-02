@@ -67,8 +67,7 @@ public class MyCaptureActivity extends CaptureActivity {
         String resultString = rawResult.getText();
         String[] result = resultString.split("_");
         String number = "";
-        int scanStatus = 2;
-        //Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();
+        int scanStatus;
         Date now = new Date();
         try {
 

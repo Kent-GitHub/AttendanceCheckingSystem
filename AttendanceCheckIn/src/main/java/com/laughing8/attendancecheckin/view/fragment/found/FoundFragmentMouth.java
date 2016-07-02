@@ -318,7 +318,7 @@ public class FoundFragmentMouth extends Fragment implements DatePicker.OnDatePic
             String date = record.getDate().getDate();
             String time = date.substring(11, date.length());
             String describe = recordType.getTypeString(record.getType());
-            String text = "第" + (position + 1) + "次签到:" + " 于 " + time + " 进行了 " + describe + "。";
+            String text = "第" + (position + 1) + "次签到:" + " 于 " + time + "  " + describe + "。";
             view.setText(text);
             return view;
         }

@@ -3,9 +3,6 @@ package com.laughing8.attendancecheckin.bmobobject;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 
-/**
- * Created by Laughing8 on 2016/4/11.
- */
 public class MUser extends BmobUser {
     //    private String username;用户的用户名（必需）。
     //    private String password;用户的密码（必需）。
@@ -16,7 +13,6 @@ public class MUser extends BmobUser {
     //    private Boolean mobilePhoneNumberVerified;手机号码的认证状态（可选）。
 
     private Integer userType;
-    private String settingKey;
     private String number;
     private String company;
     private String department;
@@ -89,11 +85,4 @@ public class MUser extends BmobUser {
         this.sex = sex;
     }
 
-    public String getSettingKey() {
-        return settingKey;
-    }
-
-    public void setSettingKey(String settingKey) {
-        this.settingKey = settingKey;
-    }
 }

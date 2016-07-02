@@ -32,7 +32,6 @@ public class DatePicker extends LinearLayout {
     private TextView tvYear, tvMonth;// 年份 月份显示
     private TextView tvEnsure;// 确定按钮显示
 
-
     private OnDateSelectedListener onDateSelectedListener;// 日期多选后监听
 
     /**
@@ -47,6 +46,10 @@ public class DatePicker extends LinearLayout {
      */
     public interface OnDateSelectedListener {
         void onDateSelected(List<String> date);
+    }
+
+    public MonthView getMonthView() {
+        return monthView;
     }
 
     public DatePicker(Context context) {

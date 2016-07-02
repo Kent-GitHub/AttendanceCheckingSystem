@@ -1,4 +1,3 @@
-include ':AttendanceChecking', ':AttendanceCheckIn', ':libzxing'
+include ':AttendanceCheckIn', ':libzxing'
 include ':captureActivity'
-include ':xBarcodeScanner'
 include ':DatePicker'

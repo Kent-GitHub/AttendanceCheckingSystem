@@ -2,7 +2,7 @@ package com.laughing8.attendancecheckin.view.activity;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +26,7 @@ import com.laughing8.attendancecheckin.application.MyApplication;
 import com.laughing8.attendancecheckin.bmobobject.MUser;
 import com.laughing8.attendancecheckin.constants.Actions;
 import com.laughing8.attendancecheckin.constants.Constants;
+import com.laughing8.attendancecheckin.utils.db.ValidateKey;
 import com.laughing8.attendancecheckin.utils.encryption.AESEncryptor;
 
 /**
@@ -41,6 +42,8 @@ public class ValidateActivity extends FragmentActivity implements View.OnClickLi
     private final int Status_Validate = 5;
     private int status;
     private String action;
+    private MUser mUser;
+
     /**
      * 提示出入密码的TextView
      */
@@ -50,10 +53,10 @@ public class ValidateActivity extends FragmentActivity implements View.OnClickLi
      */
     private String passWord = "";
     /**
-     * 加密后的密码
+     *
      */
-    private String codedPassword;
-    private SharedPreferences mPref;
+    private String key;
+
     /**
      * RadioButton充当密码提示器
      */
@@ -83,12 +86,14 @@ public class ValidateActivity extends FragmentActivity implements View.OnClickLi
             //透明状态栏
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-        init();
+        mApplication = (MyApplication) getApplication();
         action = getIntent().getAction();
+        init();
         if (action != null && Actions.CreatePassword.equals(action)) {
             status = Status_Set;
         } else if (action != null &&
                 (Actions.ValidatePassword.equals(action) || Actions.ValidateFromLogin.equals(action))) {
+            key = mApplication.getValidateKey();
             status = Status_Enter;
         }
         dealValidate(null);
@@ -112,25 +117,26 @@ public class ValidateActivity extends FragmentActivity implements View.OnClickLi
                 break;
             case Status_Second:
                 if (firstTry.equals(passWord)) {
-                    try {
-                        codedPassword = AESEncryptor.encrypt(Constants.CodeSeed, passWord);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
                     Toast.makeText(this, "设置成功", Toast.LENGTH_SHORT).show();
-                    MyApplication mApplication = (MyApplication) getApplication();
                     MUser user = mApplication.getUser();
-                    user.setSettingKey(passWord);
-                    mApplication.setUser(user);
-                    SQLiteDatabase db = mApplication.getDbHelper().getWritableDatabase();
+                    mApplication.setValidateKey(passWord);
+                    SQLiteDatabase db = mApplication.getValidateDbHelper().getWritableDatabase();
                     ContentValues values = new ContentValues();
-                    values.put("validated", 1);
+                    values.put("username", user.getUsername());
                     try {
-                        values.put("settingKey", AESEncryptor.encrypt(Constants.AESDecryptKey, passWord));
+                        values.put("key", AESEncryptor.encrypt(Constants.AESDecryptKey, passWord));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    db.update(Constants.UserTable, values, "username = ?", new String[]{user.getUsername()});
+                    Cursor c = db.query(ValidateKey.tableName, null, "username = ?",
+                            new String[]{user.getName()}, null, null, null);
+                    if (c.moveToNext()) {
+                        db.update(ValidateKey.tableName, values, "username = ?", new String[]{user.getName()});
+                        c.close();
+                    } else {
+                        db.insert(ValidateKey.tableName, null, values);
+                    }
+                    db.close();
                     int type = user.getUserType();
                     Intent i = new Intent(ValidateActivity.this, MainActivity.class);
                     if (type == 0) {
@@ -146,20 +152,16 @@ public class ValidateActivity extends FragmentActivity implements View.OnClickLi
                 status = Status_First;
                 break;
             case Status_Enter:
-                hintTv.setText("请输入密码");
+                hintTv.setText("请输入验证密码");
                 status = Status_Validate;
                 break;
             case Status_Validate:
                 MUser user = mApplication.getUser();
-                if (passWord.equals(user.getSettingKey())) {
+                if (passWord.equals(key)) {
                     int type = user.getUserType();
                     Intent i = new Intent(ValidateActivity.this, MainActivity.class);
-                    if (type == 0) {
-                        i.setAction(Actions.FromRootUser);
-                    } else if (type == 1) {
-                        i.setAction(Actions.FromAdminUser);
-                    }
-                    Toast.makeText(this, "验证成功", Toast.LENGTH_SHORT).show();
+                    if (type == 0) i.setAction(Actions.FromRootUser);
+                    else if (type == 1) i.setAction(Actions.FromAdminUser);
                     if (Actions.ValidatePassword.equals(action)) {
                         setResult(Constants.ValidateSucceed);
                         finish();
@@ -176,9 +178,6 @@ public class ValidateActivity extends FragmentActivity implements View.OnClickLi
     }
 
     private void init() {
-        mApplication = (MyApplication) getApplication();
-        mPref = mApplication.getPref();
-        codedPassword = mPref.getString(Constants.SettingKey, "");
         vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         hintTv = (TextView) findViewById(R.id.hint_tv);
         //titleBar
@@ -210,8 +209,6 @@ public class ValidateActivity extends FragmentActivity implements View.OnClickLi
 
     /**
      * 按下数字按键后更新输入的密码
-     *
-     * @param add
      */
     private void passWordAdd(String add) {
         passWord += add;
@@ -237,8 +234,6 @@ public class ValidateActivity extends FragmentActivity implements View.OnClickLi
 
     /**
      * 输入的密码更改后更新密码提示器
-     *
-     * @param num
      */
     private void lightUpRadioButton(int num) {
         for (int i = 0; i < 4; i++) {

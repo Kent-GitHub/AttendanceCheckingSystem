@@ -14,14 +14,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        app:textLeft="签到表设置" />
+        app:textLeft="签到设置"
+        android:visibility="gone"/>
 
     <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
         android:id="@+id/check_into_scan"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
         app:textLeft="开启签到" />
+
+    <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+        android:layout_marginTop="25dp"
+        android:id="@+id/statistics_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textLeft="出勤记录查询" />
+
+    <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+        android:id="@+id/statistics_late"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textLeft="每月迟到榜"
+        app:topLine="true"/>
+
+    <com.laughing8.attendancecheckin.view.custom.SettingViewFroward
+        android:id="@+id/statistics_lwe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textLeft="每月早退榜"
+        app:topLine="true"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -139,5 +163,6 @@
                 android:text="管理员签到" />
         </LinearLayout>
     </LinearLayout>
+
 
 </LinearLayout>

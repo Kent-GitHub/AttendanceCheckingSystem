@@ -26,12 +26,11 @@ import com.laughing8.attendancecheckin.application.MyApplication;
 import com.laughing8.attendancecheckin.bmobobject.MUser;
 import com.laughing8.attendancecheckin.constants.Actions;
 import com.laughing8.attendancecheckin.view.custom.IndicatorView;
-import com.laughing8.attendancecheckin.view.fragment.statistical.StatisticalFragment;
-import com.laughing8.attendancecheckin.view.fragment.checkin.CheckInFragment;
-import com.laughing8.attendancecheckin.view.fragment.RequestFragment;
 import com.laughing8.attendancecheckin.view.fragment.QRCodeFragment;
+import com.laughing8.attendancecheckin.view.fragment.checkin.CheckInFragment;
 import com.laughing8.attendancecheckin.view.fragment.found.FoundFragment;
 import com.laughing8.attendancecheckin.view.fragment.me.MeFragment;
+import com.laughing8.attendancecheckin.view.fragment.request.RequestFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +60,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             //透明状态栏
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-        Log.d("MainActivity", "LogCatTest_onCreate");
         initLayout();
         init();
     }
@@ -89,14 +87,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         action = getIntent().getAction();
         if (Actions.FromNormalUser.equals(action)) {
             fragmentOne = new QRCodeFragment();
-            fragmentTwo = new RequestFragment();
         } else if (Actions.FromAdminUser.equals(action) || Actions.FromRootUser.equals(action)) {
             isAdmin = true;
             mTitle.setText("签到管理");
             fragmentOne = new CheckInFragment();
-            fragmentTwo = new StatisticalFragment();
         }
-
+        fragmentTwo = new RequestFragment();
         FoundFragment fragmentThree = new FoundFragment();
         fragmentThree.setArguments(new Bundle());
         MeFragment fragmentFour = new MeFragment();
@@ -130,21 +126,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mIndicatorViews.add(three);
         mIndicatorViews.add(four);
         one.setOnClickListener(this);
-        if (!isAdmin) {
-            one.setImageResource(R.drawable.icon_qr_code);
-            one.setText("二维码");
-        } else {
-            one.setImageResource(R.drawable.icon_qr_code);
-            one.setText("管理");
-        }
+        one.setImageResource(R.drawable.icon_qr_code);
+        one.setText("签到");
         two.setOnClickListener(this);
-        if (!isAdmin) {
-            two.setImageResource(R.drawable.icon_notice);
-            two.setText("公告");
-        } else {
-            two.setImageResource(R.drawable.icon_query);
-            two.setText("查询");
-        }
+        two.setImageResource(R.drawable.ic_request);
+        two.setText("申请");
         three.setOnClickListener(this);
         three.setImageResource(R.drawable.icon_found);
         four.setOnClickListener(this);
@@ -255,18 +241,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     public void onPageSelected(int position) {
         switch (position) {
             case 0:
-                if (isAdmin) {
-                    mTitle.setText("签到管理");
-                } else {
-                    mTitle.setText("二维码");
-                }
+                mTitle.setText("签到");
                 break;
             case 1:
-                if (isAdmin) {
-                    mTitle.setText("查询");
-                } else {
-                    mTitle.setText("公告");
-                }
+                mTitle.setText("申请");
                 break;
             case 2:
                 mTitle.setText("发现");

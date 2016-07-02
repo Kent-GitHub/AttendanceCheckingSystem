@@ -10,22 +10,18 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AttendanceCheckIn" />
-            <option value="$PROJECT_DIR$/AttendanceChecking" />
             <option value="$PROJECT_DIR$/DatePicker" />
             <option value="$PROJECT_DIR$/captureActivity" />
             <option value="$PROJECT_DIR$/libzxing" />
-            <option value="$PROJECT_DIR$/xBarcodeScanner" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AttendanceCheckIn" />
-            <option value="$PROJECT_DIR$/AttendanceChecking" />
             <option value="$PROJECT_DIR$/DatePicker" />
             <option value="$PROJECT_DIR$/captureActivity" />
             <option value="$PROJECT_DIR$/libzxing" />
-            <option value="$PROJECT_DIR$/xBarcodeScanner" />
           </set>
         </option>
       </GradleProjectSettings>

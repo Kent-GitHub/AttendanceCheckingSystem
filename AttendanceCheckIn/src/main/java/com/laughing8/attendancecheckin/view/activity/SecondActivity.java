@@ -25,6 +25,9 @@ import com.laughing8.attendancecheckin.view.fragment.DevelopingPage;
 import com.laughing8.attendancecheckin.view.fragment.found.FoundFragmentMouth;
 import com.laughing8.attendancecheckin.view.fragment.me.AccountFragment;
 import com.laughing8.attendancecheckin.view.fragment.me.ChangePassword;
+import com.laughing8.attendancecheckin.view.fragment.request.InitiateRequest;
+import com.laughing8.attendancecheckin.view.fragment.request.MyApprove;
+import com.laughing8.attendancecheckin.view.fragment.request.MyRequest;
 import com.laughing8.attendancecheckin.view.fragment.statistical.CheckFragment;
 import com.laughing8.attendancecheckin.view.fragment.statistical.LWEFragment;
 import com.laughing8.attendancecheckin.view.fragment.statistical.LateFragment;
@@ -59,10 +62,10 @@ public class SecondActivity extends FragmentActivity implements View.OnClickList
 
     private void initFragment() {
         Fragment fragment = null;
+        Bundle bundle = null;
         if (getIntent().getAction() == null) {
             return;
         }
-
         action = getIntent().getAction();
         switch (action) {
             case Actions.MeHelp:
@@ -98,11 +101,44 @@ public class SecondActivity extends FragmentActivity implements View.OnClickList
                 fragment = new LWEFragment();
                 setTitle("月早退榜");
                 break;
+            case Actions.MyRequest:
+                fragment = new MyRequest();
+                setTitle("我申请的");
+                break;
+            case Actions.MyApprove:
+                setTitle("我审批的");
+                fragment = new MyApprove();
+                break;
+            case Actions.RequestAFL:
+                fragment = new InitiateRequest();
+                bundle = new Bundle();
+                bundle.putInt("requestType", 1);
+                setTitle("请假申请");
+                break;
+            case Actions.RequestGoOut:
+                fragment = new InitiateRequest();
+                bundle = new Bundle();
+                bundle.putInt("requestType", 2);
+                setTitle("外勤申请");
+                break;
+            case Actions.RequestTravel:
+                fragment = new InitiateRequest();
+                bundle = new Bundle();
+                bundle.putInt("requestType", 3);
+                setTitle("出差申请");
+                break;
+            case Actions.RequestOT:
+                fragment = new InitiateRequest();
+                bundle = new Bundle();
+                bundle.putInt("requestType", 4);
+                setTitle("加班申请");
+                break;
         }
         if (fragment == null) {
             fragment = new DevelopingPage();
-            setTitle("开发中");
         }
+        if (bundle != null) fragment.setArguments(bundle);
+
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.add(R.id.fragmentContainer, fragment, fragment.getClass().getName());
@@ -154,6 +190,8 @@ public class SecondActivity extends FragmentActivity implements View.OnClickList
 
     public void jumpToFragment(Fragment fragment, boolean addToBackStack) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.fragment_slide_right_in, R.anim.fragment_slide_left_out,
+                R.anim.fragment_slide_left_in, R.anim.fragment_slide_right_out);
         ft.replace(R.id.fragmentContainer, fragment, fragment.getClass().getName());
         if (addToBackStack) {
             ft.addToBackStack(null);

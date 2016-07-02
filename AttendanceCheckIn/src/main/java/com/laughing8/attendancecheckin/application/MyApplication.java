@@ -7,7 +7,8 @@ import android.util.DisplayMetrics;
 
 import com.laughing8.attendancecheckin.bmobobject.MUser;
 import com.laughing8.attendancecheckin.constants.Constants;
-import com.laughing8.attendancecheckin.utils.db.MDbHelper;
+import com.laughing8.attendancecheckin.utils.db.UserDbHelper;
+import com.laughing8.attendancecheckin.utils.db.ValidateKey;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -19,16 +20,20 @@ import cn.bmob.v3.Bmob;
 public class MyApplication extends Application {
 
     private MUser mUser;
-    private MDbHelper mDbHelper;
+    private UserDbHelper mUserDbHelper;
+    private ValidateKey mValidateDbHelper;
     private int dbVersion = 1;
     private SharedPreferences mPref;
     private int screenWidth;
     private int screenHeight;
+    private String validateKey;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Bmob.initialize(this, "5cf3623d543b2f6e7b639d73f2a58588");
-        mDbHelper = new MDbHelper(this, "user.db", null, dbVersion);
+        mUserDbHelper = new UserDbHelper(this, "user.db", null, dbVersion);
+        mValidateDbHelper = new ValidateKey(this, "validateKey.db", null, dbVersion);
         mPref = getSharedPreferences(Constants.SharedPrefKey, Context.MODE_PRIVATE);
         // Create global configuration and initialize ImageLoader with this config
         ImageLoaderConfiguration config = ImageLoaderConfiguration.createDefault(this);
@@ -44,8 +49,20 @@ public class MyApplication extends Application {
         this.mUser = mUser;
     }
 
-    public MDbHelper getDbHelper() {
-        return mDbHelper;
+    public UserDbHelper getUserDbHelper() {
+        return mUserDbHelper;
+    }
+
+    public ValidateKey getValidateDbHelper() {
+        return mValidateDbHelper;
+    }
+
+    public String getValidateKey() {
+        return validateKey;
+    }
+
+    public void setValidateKey(String validateKey) {
+        this.validateKey = validateKey;
     }
 
     public SharedPreferences getPref() {

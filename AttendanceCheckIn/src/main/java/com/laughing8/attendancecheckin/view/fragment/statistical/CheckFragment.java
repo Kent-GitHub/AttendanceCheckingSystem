@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.laughing8.attendancecheckin.R;
 import com.laughing8.attendancecheckin.bmobobject.MUser;
-import com.laughing8.attendancecheckin.utils.network.DataQuery;
+import com.laughing8.attendancecheckin.utils.bmobquery.DataQuery;
 import com.laughing8.attendancecheckin.view.activity.SecondActivity;
 import com.laughing8.attendancecheckin.view.fragment.found.FoundFragmentMouth;
 
@@ -72,7 +72,7 @@ public class CheckFragment extends Fragment implements AdapterView.OnItemClickLi
     }
 
     @Override
-    public void queryFinish(List result, int queryCode) {
+    public void onQuerySuccess(List result, int queryCode) {
         if (queryCode==contactQuery){
             mUsers = result;
             if (mAdapter != null) {
@@ -82,6 +82,11 @@ public class CheckFragment extends Fragment implements AdapterView.OnItemClickLi
                 mProgressBar.setVisibility(View.GONE);
             }
         }
+    }
+
+    @Override
+    public void onQueryError(int errorCode, String describe, int queryCode) {
+
     }
 
     class MyAdapter extends BaseAdapter {

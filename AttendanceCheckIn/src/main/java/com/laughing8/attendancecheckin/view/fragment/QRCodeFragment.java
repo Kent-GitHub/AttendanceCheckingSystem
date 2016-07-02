@@ -11,7 +11,6 @@ import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +25,7 @@ import com.laughing8.attendancecheckin.R;
 import com.laughing8.attendancecheckin.application.MyApplication;
 import com.laughing8.attendancecheckin.bmobobject.MUser;
 import com.laughing8.attendancecheckin.bmobobject.RecordByMouth;
+import com.laughing8.attendancecheckin.bmobobject.RequestRecord;
 import com.laughing8.attendancecheckin.constants.Constants;
 import com.laughing8.attendancecheckin.utils.encryption.AESEncryptor;
 import com.laughing8.attendancecheckin.utils.network.NetStatus;
@@ -34,12 +34,16 @@ import com.laughing8.attendancecheckin.view.activity.MainActivity;
 
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobDate;
 import cn.bmob.v3.datatype.BmobGeoPoint;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
@@ -59,7 +63,6 @@ public class QRCodeFragment extends Fragment implements View.OnClickListener, IS
 
     private MyApplication mApplication;
     private MUser mUser;
-
 
     private View mView;
 
@@ -181,8 +184,10 @@ public class QRCodeFragment extends Fragment implements View.OnClickListener, IS
      * 刷新显示数据
      */
     private void refreshInfo() {
-        String key = DateFormat.format("yyyy-MM-dd", CustomDigitalClock.getTime()).toString();
-        String time = DateFormat.format("HHmmss", CustomDigitalClock.getTime()).toString();
+//        String key = DateFormat.format("yyyy-MM-dd", CustomDigitalClock.getTime()).toString();
+        String key = new SimpleDateFormat("yyyy-MM-dd").format(CustomDigitalClock.getTime().getTime());
+//        String time = DateFormat.format("HHmmss", CustomDigitalClock.getTime()).toString();
+        String time = new SimpleDateFormat("HHmmss").format(CustomDigitalClock.getTime().getTime());
         encrypted = null;
         try {
             encrypted = AESEncryptor.encrypt(key, time);
@@ -190,7 +195,6 @@ public class QRCodeFragment extends Fragment implements View.OnClickListener, IS
             e.printStackTrace();
         }
         encrypted += "_" + mUser.getNumber() + "_" + mUser.getName() + "_" + IMEI + "_" + wlanMAC;
-        Log.d("encrypted", encrypted);
         mImageView.setImageBitmap(QRCoderUtils.enCode(encrypted));
     }
 
@@ -294,8 +298,10 @@ public class QRCodeFragment extends Fragment implements View.OnClickListener, IS
     private void timeUpdated(boolean succeed) {
         timeProofing = false;
         proofTv.setText("时间校对");
-        if (succeed) Toast.makeText(mActivity, "时间校对成功", Toast.LENGTH_SHORT).show();
-        else Toast.makeText(mActivity, "校对失败,请检查网络", Toast.LENGTH_SHORT).show();
+        if (succeed) {
+            refreshInfo();
+            Toast.makeText(mActivity, "时间校对成功", Toast.LENGTH_SHORT).show();
+        } else Toast.makeText(mActivity, "校对失败,请检查网络", Toast.LENGTH_SHORT).show();
     }
 
     //ISimpleDialogListener
@@ -313,6 +319,39 @@ public class QRCodeFragment extends Fragment implements View.OnClickListener, IS
     //ISimpleDialogListener
     @Override
     public void onPositiveButtonClicked(final int requestCode) {
+        String date = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+        date = date.replace("-0", "-");
+        BmobQuery<RequestRecord> query = new BmobQuery<>();
+        query.addWhereEqualTo("username", mUser.getUsername());
+        query.addWhereMatches("dates", date);
+        if (requestCode == goOutRequest) query.addWhereEqualTo("requestType", 1);
+        else if (requestCode == travelRequest) query.addWhereEqualTo("requestType", 2);
+        query.findObjects(mActivity, new FindListener<RequestRecord>() {
+            @Override
+            public void onSuccess(List<RequestRecord> list) {
+                boolean hasRight = false;
+                if (list.size() > 0) {
+                    for (RequestRecord record : list) {
+                        if (record.getStatus() == 2) {
+                            createRecord(requestCode);
+                            hasRight = true;
+                        }
+                    }
+                }
+                if (!hasRight) {
+                    Toast.makeText(mActivity, "没有签到权限", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Toast.makeText(mActivity, "网络受限，请检查网络", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    private void createRecord(final int requestCode) {
         if (requestCode == goOutRequest || requestCode == travelRequest) {
             savingRecord = true;
             RecordByMouth record = new RecordByMouth();
@@ -333,15 +372,40 @@ public class QRCodeFragment extends Fragment implements View.OnClickListener, IS
             record.save(mActivity, new SaveListener() {
                 @Override
                 public void onSuccess() {
-                    recordSyncFinish(requestCode,true);
+                    recordSyncFinish(requestCode, true);
                 }
 
                 @Override
                 public void onFailure(int i, String s) {
-                    recordSyncFinish(requestCode,false);
+                    recordSyncFinish(requestCode, false);
                 }
             });
 
+        }
+    }
+
+    private void testAddRecord() {
+        MUser user = mActivity.getUser();
+        Calendar calendar = Calendar.getInstance();
+        int dayCount = calendar.getActualMaximum(Calendar.DATE);
+        for (int i = 0; i < dayCount; i++) {
+            calendar.set(Calendar.DATE, i);
+            calendar.set(Calendar.HOUR_OF_DAY, 18);
+            int minute = (int) (Math.random() * 20);
+            calendar.set(Calendar.MINUTE, minute);
+            int second = (int) (Math.random() * 60);
+            calendar.set(Calendar.SECOND, second);
+            Date date = calendar.getTime();
+            RecordByMouth record = new RecordByMouth();
+            record.setUserName(user.getUsername());
+            record.setName(user.getName());
+            record.setDate(new BmobDate(date));
+            record.setLocation(new BmobGeoPoint());
+            record.setImei(IMEI);
+            record.setMac(wlanMAC);
+            record.setType(1);
+            record.setMonth("2016_05");
+            record.save(mActivity);
         }
     }
 
@@ -358,6 +422,7 @@ public class QRCodeFragment extends Fragment implements View.OnClickListener, IS
             else title = "出差签到失败";
         }
         SimpleDialogFragment.createBuilder(mActivity, mActivity.getSupportFragmentManager()).
-                setTargetFragment(this, 0).setTitle(title).setNeutralButtonText("关闭").show();
+                setTargetFragment(this, 0).setTitle(title).setNegativeButtonText("关闭").show();
     }
+
 }

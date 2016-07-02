@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#42a7ed"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/requestTypeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="23dp"
+            android:text="事件"
+            android:textColor="#fff"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/request_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="05-23"
+            android:textColor="#fff" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_forward_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:text="请假一天"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout1"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        app:strokeBottom="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[理由]"
+            android:textColor="#42a7ed" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minLines="8"
+            android:paddingLeft="10dp"
+            android:text="就是任性" />
+    </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_below="@id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:strokeBottom="true">
+
+            <TextView
+                android:id="@+id/textLeft1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:padding="10dp"
+                android:text="我" />
+
+            <TextView
+                android:id="@+id/textMiddle1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="于 2016年5月23日22:05:02" />
+
+            <TextView
+                android:id="@+id/textRight1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="发起申请" />
+        </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:strokeBottom="true">
+
+            <TextView
+                android:id="@+id/textLeft2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:padding="10dp"
+                android:text="某某某"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textMiddle2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="于 2016年5月23日22:05:02"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textRight2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="等待审核" />
+        </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+    </LinearLayout>
+
+
+    <com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingTop="1px"
+        app:strokeTop="true">
+
+        <com.laughing8.attendancecheckin.view.custom.StrokeButton
+            android:id="@+id/btn_callback"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="撤回申请"
+            app:strokeRight="true" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg"
+            android:text="驳回申请" />
+    </com.laughing8.attendancecheckin.view.custom.StrokeLinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_layout"
+        android:background="#fff"
+        android:gravity="top"
+        android:hint="输入说明"
+        android:minLines="2"
+        android:padding="5dp"
+        android:textSize="15sp" />
+</RelativeLayout>

@@ -24,9 +24,11 @@ import com.laughing8.attendancecheckin.R;
 import com.laughing8.attendancecheckin.application.MyApplication;
 import com.laughing8.attendancecheckin.bmobobject.MUser;
 import com.laughing8.attendancecheckin.bmobobject.RecordByMouth;
+import com.laughing8.attendancecheckin.constants.Actions;
 import com.laughing8.attendancecheckin.utils.network.DataShare;
 import com.laughing8.attendancecheckin.view.activity.MainActivity;
 import com.laughing8.attendancecheckin.view.activity.MyCaptureActivity;
+import com.laughing8.attendancecheckin.view.activity.SecondActivity;
 import com.laughing8.attendancecheckin.view.custom.SettingViewFroward;
 
 import java.net.URL;
@@ -50,6 +52,8 @@ public class CheckInFragment extends Fragment implements View.OnClickListener, I
     private TextView proofTv, travelTv, goOutTv, checkInTv;
 
     private MUser mUser;
+
+    private String hint;
 
     private String IMEI;
     private String wlanMAC;
@@ -82,6 +86,9 @@ public class CheckInFragment extends Fragment implements View.OnClickListener, I
         view.findViewById(R.id.checkInTravel).setOnClickListener(this);
         view.findViewById(R.id.timeProof).setOnClickListener(this);
         view.findViewById(R.id.checkInIv).setOnClickListener(this);
+        view.findViewById(R.id.statistics_check).setOnClickListener(onIntentClick);
+        view.findViewById(R.id.statistics_late).setOnClickListener(onIntentClick);
+        view.findViewById(R.id.statistics_lwe).setOnClickListener(onIntentClick);
 
         proofTv = (TextView) view.findViewById(R.id.timeProofTv);
         goOutTv = (TextView) view.findViewById(R.id.goOutTv);
@@ -109,6 +116,18 @@ public class CheckInFragment extends Fragment implements View.OnClickListener, I
             switch (v.getId()) {
                 case R.id.check_into_scan:
                     i = new Intent(mActivity, MyCaptureActivity.class);
+                    break;
+                case R.id.statistics_check:
+                    i = new Intent(mActivity, SecondActivity.class);
+                    i.setAction(Actions.StatisticalCheck);
+                    break;
+                case R.id.statistics_late:
+                    i = new Intent(mActivity, SecondActivity.class);
+                    i.setAction(Actions.StatisticalCheckLate);
+                    break;
+                case R.id.statistics_lwe:
+                    i = new Intent(mActivity, SecondActivity.class);
+                    i.setAction(Actions.StatisticalCheckLWE);
                     break;
             }
             startActivity(i);
@@ -241,11 +260,11 @@ public class CheckInFragment extends Fragment implements View.OnClickListener, I
     private void recordSyncFinish(int request, boolean succeed) {
         savingRecord = false;
         String title = null;
-        if (request==checkInRequest){
+        if (request == checkInRequest) {
             checkInTv.setText("管理员签到");
             if (succeed) title = "签到成功";
             else title = "签到失败";
-        }else if (request == goOutRequest) {
+        } else if (request == goOutRequest) {
             goOutTv.setText("外勤签到");
             if (succeed) title = "外勤签到成功";
             else title = "外勤签到失败";
@@ -254,8 +273,12 @@ public class CheckInFragment extends Fragment implements View.OnClickListener, I
             if (succeed) title = "出差签到成功";
             else title = "出差签到失败";
         }
-        SimpleDialogFragment.createBuilder(mActivity, mActivity.getSupportFragmentManager()).
-                setTargetFragment(this, 0).setTitle(title).setNegativeButtonText("关闭").show();
+        if (isResumed()) {
+            SimpleDialogFragment.createBuilder(mActivity, mActivity.getSupportFragmentManager()).
+                    setTitle(title).setNegativeButtonText("关闭").show();
+        } else {
+            hint = title;
+        }
     }
 
     private int defineRecordType(Date date) {
@@ -280,4 +303,13 @@ public class CheckInFragment extends Fragment implements View.OnClickListener, I
         return 0;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (hint != null) {
+            SimpleDialogFragment.createBuilder(mActivity, mActivity.getSupportFragmentManager()).
+                    setTitle(hint).setNegativeButtonText("关闭").show();
+            hint = null;
+        }
+    }
 }

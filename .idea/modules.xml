@@ -3,12 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AttendanceCheckIn/AttendanceCheckIn.iml" filepath="$PROJECT_DIR$/AttendanceCheckIn/AttendanceCheckIn.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AttendanceChecking/AttendanceChecking.iml" filepath="$PROJECT_DIR$/AttendanceChecking/AttendanceChecking.iml" />
       <module fileurl="file://$PROJECT_DIR$/AttendanceCheckingSystem.iml" filepath="$PROJECT_DIR$/AttendanceCheckingSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/DatePicker/DatePicker.iml" filepath="$PROJECT_DIR$/DatePicker/DatePicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/captureActivity/captureActivity.iml" filepath="$PROJECT_DIR$/captureActivity/captureActivity.iml" />
       <module fileurl="file://$PROJECT_DIR$/libzxing/libzxing.iml" filepath="$PROJECT_DIR$/libzxing/libzxing.iml" />
-      <module fileurl="file://$PROJECT_DIR$/xBarcodeScanner/xBarcodeScanner.iml" filepath="$PROJECT_DIR$/xBarcodeScanner/xBarcodeScanner.iml" />
     </modules>
   </component>
 </project>

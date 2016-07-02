@@ -20,8 +20,6 @@ import android.widget.TextView;
 
 import com.laughing8.attendancecheckin.R;
 
-import java.util.List;
-
 public class BetterCoverViewTool {
 
     /**
@@ -134,16 +132,12 @@ public class BetterCoverViewTool {
     /**
      * 给mCoverView设置的Tag
      */
-    private String mCoverViewTag = "mCoverViewTag";
+    private String mTag = "mCoverViewTag";
     /**
      * 标记点击mCoverView后是加载中的状态
      */
     private boolean isRefreshing;
 
-    /**
-     * 用于储存CoverView里的子View
-     */
-    private List<View> mViews;
     /**
      * Activity.this
      */
@@ -156,7 +150,6 @@ public class BetterCoverViewTool {
     /**
      * 构造方法
      *
-     * @param activity
      */
     public BetterCoverViewTool(Activity activity) {
         init(activity);
@@ -165,7 +158,6 @@ public class BetterCoverViewTool {
     /**
      * 构造方法
      *
-     * @param activity
      */
     public BetterCoverViewTool(Activity activity, View view) {
         init(activity);
@@ -175,11 +167,10 @@ public class BetterCoverViewTool {
     /**
      * 遮住view所在的区域
      *
-     * @param view
      */
     public void cover(final View view) {
         if (view == null) {
-            Log.e("CoverViewTool", "The View Wanna be cover shouldn't be null!!!");
+            Log.e("BetterCoverViewTool", "The View Wanna be cover shouldn't be null!!!");
             return;
         }
         FrameLayout rootView = (FrameLayout) mActivity.getWindow().getDecorView().findViewById(android.R.id.content);
@@ -204,12 +195,8 @@ public class BetterCoverViewTool {
                 //获取View坐标
                 int[] locationOnScreen = new int[2];
                 view.getLocationOnScreen(locationOnScreen);
-                //Log.d("onLayoutChangeListener","locationOnScreen[0]:"+locationOnScreen[0]+
-                //", locationOnScreen[1]"+locationOnScreen[1]);
                 int[] locationInWindow = new int[2];
                 view.getLocationInWindow(locationInWindow);
-                //Log.d("onLayoutChangeListener","locationInWindow[0]:"+locationInWindow[0]+
-                //    ", locationInWindow[1]"+locationInWindow[1]);
                 mCoverView.setX(locationOnScreen[0]);
                 mCoverView.setY(locationOnScreen[1]
                         //减去状态栏高度
@@ -219,18 +206,6 @@ public class BetterCoverViewTool {
                 mCoverView.setLayoutParams(lp);
             }
         });
-    }
-
-    private void cover(View view, FrameLayout parent) {
-        coverInViewGroup(view, parent);
-    }
-
-    private void cover(View view, RelativeLayout parent) {
-        coverInViewGroup(view, parent);
-    }
-
-    private void coverInViewGroup(View view, ViewGroup parent) {
-
     }
 
     public void fill(RelativeLayout view) {
@@ -315,7 +290,7 @@ public class BetterCoverViewTool {
     }
 
     /**
-     * 显示网络结果
+     * 显示无网络结果
      */
     public void showNetWork() {
         this.refreshType = REFRESH_Network;
@@ -324,7 +299,7 @@ public class BetterCoverViewTool {
     }
 
     /**
-     * 结束显示；
+     * 加载结束；
      */
     public void showFinish() {
         removeCover(true);
@@ -475,21 +450,6 @@ public class BetterCoverViewTool {
         mCoverView.setBackgroundColor(color);
     }
 
-    //    /**
-    //     * 为CoverView的子View设置MarginTop
-    //     *
-    //     * @param view
-    //     * @param top
-    //     * @return
-    //     */
-    //    public CoverView setMarginTop(View view, int top) {
-    //        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) view
-    //                .getLayoutParams();
-    //        lp.setMargins(0, top, 0, 0);
-    //        view.setLayoutParams(lp);
-    //        return mCoverView;
-    //    }
-
     /**
      * 为mCoverView设置点击事件
      *
@@ -555,10 +515,5 @@ public class BetterCoverViewTool {
     public void setNetWorkButtonMessage(String mNetWorkButtonMessage) {
         this.mNetWorkButtonMessage = mNetWorkButtonMessage;
     }
-
-    // ---------------------------
-    // get/set
-    // ---------------------------
-
 
 }

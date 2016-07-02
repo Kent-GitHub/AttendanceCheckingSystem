@@ -21,8 +21,7 @@
             <cn.aigestudio.datepicker.views.DatePicker
                 android:id="@+id/found_datePicker"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible" />
+                android:layout_height="match_parent" />
 
             <com.prolificinteractive.materialcalendarview.MaterialCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/calendarView"

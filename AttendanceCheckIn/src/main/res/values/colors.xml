@@ -9,4 +9,8 @@
     <color name="login_button_pressed">#009a9a</color>
     <color name="buttonPressed">#30000000</color>
     <color name="hyaline">#00000000</color>
+    <color name="submitBlue">#159AEA</color>
+    <color name="submitPressed">#1180C0</color>
+    <color name="confirmBlue">#80159AEA</color>
+    <color name="confirmPressed">#801180C0</color>
 </resources>
